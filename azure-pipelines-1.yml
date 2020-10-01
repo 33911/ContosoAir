@@ -17,5 +17,12 @@ steps:
 
 - script: |
     npm install
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Free Trial (0dad144a-f084-416a-8d4a-cef994691b6d)'
+    appType: 'webApp'
+    appName: 'aaa'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
     npm run build
   displayName: 'npm install and build'
